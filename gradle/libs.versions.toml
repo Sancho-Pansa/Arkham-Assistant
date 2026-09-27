@@ -6,13 +6,11 @@ com-google-code-gson-gson = "2.11.0"
 com-google-guava-guava = "33.2.1-jre"
 org-apache-commons-commons-lang3 = "3.16.0"
 org-jgrapht-jgrapht-core = "1.5.2"
-org-junit-jupiter-junit-jupiter-engine = "5.11.0"
-org-junit-jupiter-junit-jupiter-params = "5.11.0-RC1"
-agp = "9.2.1"
+agp = "9.4.1"
 kotlin = "2.4.0"
 coreKtx = "1.16.0"
-junit = "4.13.2"
-junitVersion = "1.2.1"
+junit6 = "6.1.3"
+junitVersion = "1.11.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.1"
 activityCompose = "1.10.1"
@@ -24,10 +22,9 @@ com-google-code-gson-gson = { module = "com.google.code.gson:gson", version.ref 
 com-google-guava-guava = { module = "com.google.guava:guava", version.ref = "com-google-guava-guava" }
 org-apache-commons-commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "org-apache-commons-commons-lang3" }
 org-jgrapht-jgrapht-core = { module = "org.jgrapht:jgrapht-core", version.ref = "org-jgrapht-jgrapht-core" }
-org-junit-jupiter-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "org-junit-jupiter-junit-jupiter-engine" }
-org-junit-jupiter-junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "org-junit-jupiter-junit-jupiter-params" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit6" }
+junit-platform-launcher = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit6" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }

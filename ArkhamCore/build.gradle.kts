@@ -12,8 +12,8 @@ dependencies {
     api(libs.org.apache.commons.commons.lang3)
     api(libs.com.google.code.gson.gson)
     api(libs.org.jgrapht.jgrapht.core)
-    testImplementation(libs.org.junit.jupiter.junit.jupiter.engine)
-    testImplementation(libs.org.junit.jupiter.junit.jupiter.params)
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 group = "io.sanchopansa.arkham"
@@ -21,11 +21,6 @@ version = "0.1.0"
 description = "Core logic for creating digital version of Arkham Horror (2nd edition) applications."
 java.sourceCompatibility = JavaVersion.VERSION_17
 
-/*publishing {
-    publications.create<MavenPublication>("maven") {
-        from(components["java"])
-    }
-}*/
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
