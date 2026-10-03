@@ -148,9 +148,9 @@ public class Investigator extends AbstractGameElement {
         this.stamina = new Stat(stamina);
         this.sanity = new Stat(sanity);
         this.focus = new Stat(focus);
-        this.SS = new Skill(minSpeed, maxSneak, this.focus);
-        this.FW = new Skill(minFight, maxWill, this.focus);
-        this.LL = new Skill(minLore, maxLuck, this.focus);
+        this.SS = new Skill(minSpeed, maxSneak);
+        this.FW = new Skill(minFight, maxWill);
+        this.LL = new Skill(minLore, maxLuck);
         this.ability = new Ability(this, abilityName, abilityDescription, abilityPhase);
     }
 
