@@ -2,17 +2,7 @@ package io.sanchopansa.arkham;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
-import io.sanchopansa.arkham.core.Game;
-import io.sanchopansa.arkham.core.GameEngine;
-import io.sanchopansa.arkham.core.GameListener;
-import io.sanchopansa.arkham.core.GameVault;
-import io.sanchopansa.arkham.factories.AbstractGameFactory;
-import io.sanchopansa.arkham.impl.ClasspathJsonSource;
-import io.sanchopansa.arkham.factories.JsonGameFactory;
-import io.sanchopansa.arkham.api.JsonSource;
-import io.sanchopansa.arkham.core.investigators.Investigator;
-import io.sanchopansa.arkham.core.locations.Location;
-import io.sanchopansa.arkham.core.monsters.Ancient;
+
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.junit.jupiter.api.Assertions;
@@ -21,6 +11,18 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.sanchopansa.arkham.api.JsonSource;
+import io.sanchopansa.arkham.core.Game;
+import io.sanchopansa.arkham.core.GameEngine;
+import io.sanchopansa.arkham.core.GameListener;
+import io.sanchopansa.arkham.core.GameVault;
+import io.sanchopansa.arkham.core.investigators.Investigator;
+import io.sanchopansa.arkham.core.locations.Location;
+import io.sanchopansa.arkham.core.monsters.Ancient;
+import io.sanchopansa.arkham.factories.AbstractGameFactory;
+import io.sanchopansa.arkham.factories.JsonGameFactory;
+import io.sanchopansa.arkham.impl.ClasspathJsonSource;
 
 class GameEngineTest {
 
@@ -42,7 +44,7 @@ class GameEngineTest {
 
     @Test
     public void testEngineInit() {
-        List<String> players = new ArrayList<>(List.of(new String[]{ "Аманда Шарп", "Глория Гольдберг", "Декстер Дрейк" }));
+        List<String> players = new ArrayList<>(List.of(new String[]{"Аманда Шарп", "Глория Гольдберг", "Декстер Дрейк"}));
         Investigator[] investigators = new Investigator[3];
         investigatorsPool.stream()
                 .filter(i -> players.contains(i.getName()))
@@ -68,5 +70,33 @@ class GameEngineTest {
         };
         GameEngine engine = new GameEngine(gameInstance, gameVault, map, listener);
         Assertions.assertNotNull(engine);
+    }
+
+    @Test
+    public void testUpkeepRestoresInvestigatorFocus() {
+        Investigator investigator = gameVault.getInvestigators().iterator().next();
+        investigator.getFocus().sub(1);
+        Game game = new Game(gameVault.getAncientsPool().get(0), investigator);
+        GameListener listener = new GameListener() {
+            @Override
+            public void onPhaseStart(Game gameState, GameVault gameVault) {
+            }
+
+            @Override
+            public void onGameWin() {
+            }
+
+            @Override
+            public void onGameOver() {
+            }
+        };
+        GameEngine engine = new GameEngine(game, gameVault, map, listener);
+
+        engine.upkeep();
+
+        Assertions.assertEquals(
+                investigator.getFocus().getInitialMaximum(),
+                investigator.getFocus().getValue()
+        );
     }
 }

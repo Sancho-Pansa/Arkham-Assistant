@@ -35,6 +35,6 @@ The "Core" must remain independent of Android implementation, no Android SDK dep
 - Preserve backward compatibility unless the task explicitly requires an API change.
 
 # Important consideration
-This subproject has a lasting history of slow changes over vast period of time. Thus, keep in mind that it contains a lot of "legacy" components and inconsistency accross different files.
+This subproject has a lasting history of slow changes over vast period of time. Thus, keep in mind that it contains a lot of "legacy" components and inconsistency across different files.
 If you have detected such inconsistency or severe violation of architectural pattern, mention it in response.
 Architecture review is appreciated, but only as advice and guides in order for human user to make the changes (unless commanded to do it after such review).

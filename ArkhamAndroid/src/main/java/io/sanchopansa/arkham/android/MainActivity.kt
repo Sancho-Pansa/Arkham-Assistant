@@ -24,14 +24,16 @@ class MainActivity : ComponentActivity() {
         val gameVault = JsonGameFactory(jsonSource).createVault()
         val player = gameVault.investigators.toList().singleOrNull { investigator -> investigator.name == "Аманда Шарп" }
         val playerVm: PlayerSheetVm by viewModels()
-        playerVm.loadInvestigator(player!!)
+        val storage = io.sanchopansa.arkham.android.ui.PlayerSessionStore(applicationContext)
+        playerVm.loadInvestigator(player!!, storage)
         enableEdgeToEdge()
         setContent {
-            MaterialTheme {
+            AndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     PlayerSheet(
                         modifier = Modifier.padding(innerPadding),
-                        playerVm
+                        playerSheetVm = playerVm,
+                        onRetry = { playerVm.retry(player, storage) }
                     )
                 }
             }

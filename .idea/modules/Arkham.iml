@@ -5,6 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../ArkhamAndroid/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../ArkhamAndroid/.idea/caches" />
       <excludeFolder url="file://$MODULE_DIR$/../../ArkhamAndroid/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../ArkhamFetcher" />
       <excludeFolder url="file://$MODULE_DIR$/../../ArkhamFetcher/dist" />
       <excludeFolder url="file://$MODULE_DIR$/../../ArkhamFetcher/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/../../ArkhamFetcher/out" />

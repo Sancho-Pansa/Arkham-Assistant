@@ -12,10 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
@@ -40,9 +38,7 @@ fun UncappedStepper(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.TwoTone.KeyboardArrowLeft,
-                contentDescription = "Minus Sign",
-                tint = Color.Black,
-                modifier = modifier
+                contentDescription = "Minus Sign"
             )
         }
 
@@ -61,9 +57,7 @@ fun UncappedStepper(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.TwoTone.KeyboardArrowRight,
-                contentDescription = "Plus Sign",
-                tint = Color.Black,
-                modifier = modifier
+                contentDescription = "Plus Sign"
             )
         }
     }

@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
@@ -36,12 +35,11 @@ fun StatStepper(
     ) {
         IconButton(
             onClick = minusAction,
-            enabled = true,
+            enabled = true
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.TwoTone.KeyboardArrowLeft,
-                contentDescription = "Minus Sign",
-                modifier = modifier
+                contentDescription = "Minus Sign"
             )
         }
 
@@ -60,8 +58,7 @@ fun StatStepper(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.TwoTone.KeyboardArrowRight,
-                contentDescription = "Plus Sign",
-                modifier = modifier
+                contentDescription = "Plus Sign"
             )
         }
     }

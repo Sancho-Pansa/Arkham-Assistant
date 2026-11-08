@@ -4,6 +4,14 @@
     <excludeFromCompile>
       <directory url="file://$PROJECT_DIR$/ArkhamEditor/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ArkhamCore" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel target="17">
       <module name="ArkhamCore.main" target="17" />
       <module name="ArkhamCore.test" target="17" />
