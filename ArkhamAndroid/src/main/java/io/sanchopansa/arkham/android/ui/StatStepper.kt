@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun StatStepper(
     modifier: Modifier = Modifier,
+    header: String = "",
     value: Int = 0,
     max: Int = 0,
     prependText: String = "",
@@ -28,6 +29,14 @@ fun StatStepper(
     minusAction: () -> Unit = { },
     plusAction: () -> Unit = { }
 ) {
+    if (header != "") {
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(header)
+        }
+    }
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -62,4 +71,13 @@ fun StatStepper(
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun StatStepperPreview() {
+    StatStepper(
+        header = "Заголовок",
+        max = 6
+    )
 }

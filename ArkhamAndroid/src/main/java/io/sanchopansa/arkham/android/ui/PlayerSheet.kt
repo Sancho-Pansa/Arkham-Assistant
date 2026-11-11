@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import io.sanchopansa.arkham.core.Phase
@@ -25,9 +26,12 @@ fun PlayerSheet(
     val vm = playerSheetVm
     val state = vm.uiState
     val error = vm.error
-    Column(modifier
-        .verticalScroll(rememberScrollState())
-        .padding(16.dp)) {
+    Column(
+        modifier
+            .verticalScroll(rememberScrollState())
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         if (error != null) {
             Text(error); Button(onClick = onRetry) { Text("Повторить") }
         }
@@ -45,17 +49,17 @@ fun PlayerSheet(
             }
         )
         StatStepper(
+            header = "Здоровье",
             value = p.stamina,
             max = p.maxStamina,
             minusAction = { vm.changeHealth(-1) },
             plusAction = { vm.changeHealth(1) })
-        Text("Здоровье")
         StatStepper(
+            header = "Рассудок",
             value = p.sanity,
             max = p.maxSanity,
             minusAction = { vm.changeSanity(-1) },
             plusAction = { vm.changeSanity(1) })
-        Text("Рассудок")
         Text("Деньги: ${p.money} · Улики: ${p.clueTokens}")
         Row {
             TextButton(onClick = { vm.changeMoney(-1) }) { Text("−$") }
@@ -63,7 +67,7 @@ fun PlayerSheet(
             TextButton(onClick = { vm.changeClueTokens(-1) }) { Text("− улика") }
             TextButton(onClick = { vm.changeClueTokens(1) }) { Text("+ улика") }
         }
-        Text(if (s.isSetup) "Свободная расстановка навыков" else if (s.isSkillsConfirmed) "Настройка навыков завершена" else "Доступная концентрация: ${s.remainingFocus}")
+        Text(if (s.isSetup) "Свободная расстановка навыков" else if (s.isSkillsConfirmed) "Навыки" else "Доступная концентрация: ${s.remainingFocus}")
         val skills = listOf(p.speedSneak, p.fightWill, p.loreLuck)
         skills.forEachIndexed { index, skill ->
             BlueRedSlider(
@@ -104,13 +108,13 @@ fun PlayerSheet(
             BackHandler { /* Combat must be ended explicitly. */ }
             AlertDialog(
                 onDismissRequest = {}, title = { Text("Бой") }, text = {
-                Column {
-                    Text("Механика боя появится позже.")
-                    if (error != null) {
-                        Text(error); TextButton(onClick = onRetry) { Text("Повторить") }
+                    Column {
+                        Text("Механика боя появится позже.")
+                        if (error != null) {
+                            Text(error); TextButton(onClick = onRetry) { Text("Повторить") }
+                        }
                     }
-                }
-            },
+                },
                 confirmButton = {
                     Button(
                         onClick = vm::endCombat,
