@@ -1,12 +1,15 @@
 package io.sanchopansa.arkham.android.ui
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import io.sanchopansa.arkham.api.JsonSource
 import io.sanchopansa.arkham.core.Phase
 import io.sanchopansa.arkham.core.PlayerSession
 import io.sanchopansa.arkham.core.investigators.Investigator
+import io.sanchopansa.arkham.json.JsonExtractor
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -23,6 +26,28 @@ class PlayerSheetVm : ViewModel() {
     private var store: PlayerSessionStore? = null
     private var loaded = false
     private var pendingSave = false
+
+    fun loadInvestigatorChoices(source: JsonSource) {
+        if (uiState != PlayerSheetUiState.Loading &&
+            uiState != PlayerSheetUiState.InvestigatorLoadFailed
+        ) return
+
+        uiState = try {
+            val investigators = JsonExtractor(source)
+                .extractInvestigatorsFromJson("Investigators.json")
+                .sortedBy { it.name }
+            check(investigators.isNotEmpty()) { "Investigators.json is empty" }
+            PlayerSheetUiState.SelectingInvestigator(investigators)
+        } catch (e: Exception) {
+            Log.e("PlayerSheetVm", "Failed to load investigators", e)
+            PlayerSheetUiState.InvestigatorLoadFailed
+        }
+    }
+
+    fun selectInvestigator(player: Investigator) {
+        if (uiState is PlayerSheetUiState.SelectingInvestigator) loadInvestigator(player)
+    }
+
     fun loadInvestigator(player: Investigator, storage: PlayerSessionStore? = null) {
         if (loaded) return
         store = storage
@@ -67,6 +92,7 @@ class PlayerSheetVm : ViewModel() {
     }
 
     private fun save() {
+        val storage = store ?: return
         val s = session ?: return
         val json = JSONObject().put("version", 1).put("investigator", investigator.name)
             .put("health", investigator.stamina.value).put("sanity", investigator.sanity.value)
@@ -76,7 +102,7 @@ class PlayerSheetVm : ViewModel() {
             .put("phase", s.phase.name).put("confirmed", s.isSkillsConfirmed)
             .put("combat", s.isCombat)
         try {
-            store?.write(json); pendingSave = false; error = null
+            storage.write(json); pendingSave = false; error = null
         } catch (e: Exception) {
             pendingSave = true; error = "Не удалось сохранить: ${e.message}"
         }
