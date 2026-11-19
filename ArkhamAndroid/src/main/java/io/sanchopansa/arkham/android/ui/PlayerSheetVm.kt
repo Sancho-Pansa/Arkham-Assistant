@@ -27,63 +27,102 @@ class PlayerSheetVm : ViewModel() {
     private var loaded = false
     private var pendingSave = false
 
-    fun loadInvestigatorChoices(source: JsonSource) {
+    fun initialize(source: JsonSource, storage: PlayerSessionStore) {
         if (uiState != PlayerSheetUiState.Loading &&
+            uiState != PlayerSheetUiState.SessionLoadFailed
+        ) return
+
+        store = storage
+        try {
+            val snapshot = storage.read()
+            if (snapshot == null) {
+                error = null
+                uiState = PlayerSheetUiState.ChoosingMode
+            } else {
+                val name = snapshot.getString("investigator")
+                val player = readInvestigators(source).single { it.name == name }
+                openSession(player, snapshot)
+            }
+        } catch (e: Exception) {
+            reportSessionLoadError(e)
+            uiState = PlayerSheetUiState.SessionLoadFailed
+        }
+    }
+
+    fun loadInvestigatorChoices(source: JsonSource) {
+        if (uiState != PlayerSheetUiState.ChoosingMode &&
             uiState != PlayerSheetUiState.InvestigatorLoadFailed
         ) return
 
         uiState = try {
-            val investigators = JsonExtractor(source)
-                .extractInvestigatorsFromJson("Investigators.json")
-                .sortedBy { it.name }
-            check(investigators.isNotEmpty()) { "Investigators.json is empty" }
-            PlayerSheetUiState.SelectingInvestigator(investigators)
+            PlayerSheetUiState.SelectingInvestigator(readInvestigators(source).sortedBy { it.name })
         } catch (e: Exception) {
             Log.e("PlayerSheetVm", "Failed to load investigators", e)
             PlayerSheetUiState.InvestigatorLoadFailed
         }
     }
 
+    private fun readInvestigators(source: JsonSource): Set<Investigator> =
+        JsonExtractor(source).extractInvestigatorsFromJson("Investigators.json").also {
+            check(it.isNotEmpty()) { "Investigators.json is empty" }
+        }
+
     fun selectInvestigator(player: Investigator) {
-        if (uiState is PlayerSheetUiState.SelectingInvestigator) loadInvestigator(player)
+        if (uiState is PlayerSheetUiState.SelectingInvestigator) openSession(player, null)
     }
 
     fun loadInvestigator(player: Investigator, storage: PlayerSessionStore? = null) {
         if (loaded) return
         store = storage
         try {
-            val json = store?.read()
-            val state = if (json == null) PlayerSession(
+            openSession(player, storage?.read())
+        } catch (e: Exception) {
+            reportSessionLoadError(e)
+        }
+    }
+
+    private fun reportSessionLoadError(error: Exception) {
+        this.error = "Не удалось загрузить сохранение: ${error.message}"
+    }
+
+    private fun openSession(player: Investigator, json: JSONObject?) {
+        val state = if (json == null) {
+            PlayerSession(
                 player.focus.value,
                 intArrayOf(player.ss.sliderIndex, player.fw.sliderIndex, player.ll.sliderIndex)
             )
-            else {
-                require(json.getString("investigator") == player.name) { "Сохранение другого персонажа" }
-                val positions = json.getJSONArray("positions")
-                require(positions.length() == 3)
-                val focus = json.getInt("focus")
-                require(focus in 0..player.focus.currentMaximum)
-                val restored = PlayerSession.restore(
-                    focus,
-                    IntArray(3) { positions.getInt(it) },
-                    json.getBoolean("setup"),
-                    Phase.valueOf(json.getString("phase")),
-                    json.getBoolean("confirmed"),
-                    json.getBoolean("combat")
-                )
-                val health = json.getInt("health");
-                val sanity = json.getInt("sanity")
-                require(health in 0..player.stamina.currentMaximum && sanity in 0..player.sanity.currentMaximum)
-                player.stamina.add(health - player.stamina.value); player.sanity.add(sanity - player.sanity.value)
-                player.focus.add(focus - player.focus.value)
-                player.money = json.getInt("money"); player.clueTokens = json.getInt("clues")
-                restored
-            }
-            investigator = player; session = state; loaded = true; applySkills(state); error =
-                null; publish()
-        } catch (e: Exception) {
-            error = "Не удалось загрузить сохранение: ${e.message}"
+        } else {
+            require(json.getString("investigator") == player.name) { "Сохранение другого персонажа" }
+            val positions = json.getJSONArray("positions")
+            require(positions.length() == 3)
+            val focus = json.getInt("focus")
+            require(focus in 0..player.focus.currentMaximum)
+            val restored = PlayerSession.restore(
+                focus,
+                IntArray(3) { positions.getInt(it) },
+                json.getBoolean("setup"),
+                Phase.valueOf(json.getString("phase")),
+                json.getBoolean("confirmed"),
+                json.getBoolean("combat")
+            )
+            val health = json.getInt("health")
+            val sanity = json.getInt("sanity")
+            require(health in 0..player.stamina.currentMaximum && sanity in 0..player.sanity.currentMaximum)
+            val money = json.getInt("money")
+            val clues = json.getInt("clues")
+            player.stamina.add(health - player.stamina.value)
+            player.sanity.add(sanity - player.sanity.value)
+            player.focus.add(focus - player.focus.value)
+            player.money = money
+            player.clueTokens = clues
+            restored
         }
+        investigator = player
+        session = state
+        loaded = true
+        applySkills(state)
+        error = null
+        publish()
     }
 
     private var revision = 0L
@@ -109,7 +148,11 @@ class PlayerSheetVm : ViewModel() {
     }
 
     fun retry(player: Investigator, storage: PlayerSessionStore) {
-        if (!loaded) loadInvestigator(player, storage) else if (pendingSave) save()
+        if (!loaded) loadInvestigator(player, storage) else retrySave()
+    }
+
+    fun retrySave() {
+        if (pendingSave) save()
     }
 
     private fun act(action: (PlayerSession) -> Unit) {

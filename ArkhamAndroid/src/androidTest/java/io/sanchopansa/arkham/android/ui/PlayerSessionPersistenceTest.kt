@@ -12,6 +12,7 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
+import java.io.File
 
 class PlayerSessionPersistenceTest {
     private val context = InstrumentationRegistry.getInstrumentation().targetContext
@@ -85,12 +86,30 @@ class PlayerSessionPersistenceTest {
 
     @Test
     fun saveFailureCanBeRetriedDuringCombat() {
-        val vm = load(); vm.startGame(); vm.nextPhase()
-        val target = java.io.File(context.filesDir, fileName)
-        assertTrue(target.delete()); assertTrue(target.mkdir())
-        vm.startCombat(); assertNotNull(vm.error); assertTrue(vm.session!!.isCombat)
-        assertTrue(target.delete())
-        vm.retry(player(), store()); assertNull(vm.error)
-        assertTrue(load().session!!.isCombat)
+        val root = kotlin.io.path.createTempDirectory(context.filesDir.toPath()).toFile()
+        try {
+            val directory = File(root, "session")
+            val backup = File(root, "backup")
+            assertTrue(directory.mkdir())
+            val storage = PlayerSessionStore(context, "${root.name}/${directory.name}/$fileName")
+            val vm = PlayerSheetVm().apply { loadInvestigator(player(), storage) }
+            vm.startGame()
+            vm.nextPhase()
+
+            assertTrue(directory.renameTo(backup))
+            assertTrue(directory.createNewFile())
+            vm.startCombat()
+            assertNotNull(vm.error)
+            assertTrue(vm.session!!.isCombat)
+
+            assertTrue(directory.delete())
+            assertTrue(backup.renameTo(directory))
+            vm.retry(player(), storage)
+            assertNull(vm.error)
+            val restored = PlayerSheetVm().apply { loadInvestigator(player(), storage) }
+            assertTrue(restored.session!!.isCombat)
+        } finally {
+            root.deleteRecursively()
+        }
     }
 }

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Android</string>
+    <string name="player_mode">Режим игрока</string>
+    <string name="game_master_mode">Режим ведущего</string>
     <string name="choose_investigator">Выберите сыщика</string>
     <string name="investigators_load_error">Не удалось загрузить список сыщиков</string>
     <string name="retry_investigator_load">Повторить</string>
