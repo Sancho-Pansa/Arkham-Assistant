@@ -13,6 +13,6 @@ fun Investigator.toUiModel() = InvestigatorUi(
     money,
     clueTokens,
     SkillUi("Скорость", "Скрытность", ss.leftBlue, ss.leftRed, ss.sliderIndex),
-    SkillUi("Бой", "Воля", fw.leftBlue, fw.leftRed, fw.sliderIndex),
+    SkillUi("Сила", "Воля", fw.leftBlue, fw.leftRed, fw.sliderIndex),
     SkillUi("Знания", "Удача", ll.leftBlue, ll.leftRed, ll.sliderIndex)
 )

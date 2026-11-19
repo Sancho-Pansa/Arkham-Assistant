@@ -1,5 +1,6 @@
 package io.sanchopansa.arkham.android.ui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,6 +14,8 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -23,9 +26,11 @@ fun BlueRedSlider(
     modifier: Modifier = Modifier, enabled: Boolean = false,
     canSelect: (Int) -> Boolean = { true }, onSelect: (Int) -> Unit = {}
 ) {
-    Card(modifier
-        .fillMaxWidth()
-        .padding(vertical = 4.dp)) {
+    Card(
+        modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+    ) {
         Column(Modifier.padding(8.dp)) {
             Text("$blueLabel / $redLabel")
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
@@ -35,9 +40,24 @@ fun BlueRedSlider(
                         contentPadding = PaddingValues(8.dp),
                         colors = ButtonDefaults.outlinedButtonColors(
                             containerColor = if (index == initialIndex) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface
+                        ),
+                        border = BorderStroke(
+                            1.dp,
+                            if (index == initialIndex) Color.Black else Color.Gray
                         )
                     ) {
-                        Text("${minBlue + index}\n${maxRed - index}")
+                        Column {
+                            Text(
+                                text = "${minBlue + index}",
+                                color = Color(0xFF1565C0),
+                                fontWeight = if (index == initialIndex) FontWeight.Bold else FontWeight.Normal
+                            )
+                            Text(
+                                text = "${maxRed - index}",
+                                color = Color(0xFFC62828),
+                                fontWeight = if (index == initialIndex) FontWeight.Bold else FontWeight.Normal
+                            )
+                        }
                     }
                 }
             }
