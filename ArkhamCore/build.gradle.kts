@@ -13,7 +13,12 @@ dependencies {
     api(libs.com.google.code.gson.gson)
     api(libs.org.jgrapht.jgrapht.core)
     testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter.params)
     testRuntimeOnly(libs.junit.platform.launcher)
+}
+
+sourceSets.named("test") {
+    resources.srcDir(rootProject.layout.projectDirectory.dir("game-data"))
 }
 
 group = "io.sanchopansa.arkham"

@@ -6,10 +6,11 @@ Original tabletop game has a lot of concurrent mechanics, counters, and rules, w
 This monorepository contains these components:
 - "./ArkhamCore" or simply "Core" - platform-independent game logic written in Java
 - "./ArkhamAndroid" or "Android" - Android application consuming the "core" module
-- "./ArkhamFetcher" - legacy NodeJS utility for asset extraction. Exclude it from your context.
+- "./ArkhamFetcher" - legacy Node.js utility for asset extraction. Exclude it from your context.
 
 More specific information is written in corresponding sub-folders.
 
 # General rules
 - The game logic must be independent of Android APIs
 - Do not introduce Android dependencies into "Core"
+- Common static game information about assets (e.g. characters, items, monsters, etc.) is in ./game-data directory. 

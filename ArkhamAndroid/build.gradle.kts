@@ -32,6 +32,10 @@ android {
         compose = true
     }
 
+    sourceSets.named("main") {
+        assets.directories.add(rootProject.layout.projectDirectory.dir("game-data").asFile.path)
+    }
+
     compileSdk {
         version = release(35)
     }

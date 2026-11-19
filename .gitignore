@@ -5,6 +5,7 @@ out/
 
 # Android / Gradle
 .gradle/
+.gradle-agent/
 .kotlin/
 local.properties
 .gradletasknamecache

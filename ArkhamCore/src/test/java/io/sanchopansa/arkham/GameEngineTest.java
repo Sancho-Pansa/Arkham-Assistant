@@ -76,7 +76,7 @@ class GameEngineTest {
     public void testUpkeepRestoresInvestigatorFocus() {
         Investigator investigator = gameVault.getInvestigators().iterator().next();
         investigator.getFocus().sub(1);
-        Game game = new Game(gameVault.getAncientsPool().get(0), investigator);
+        Game game = new Game(gameVault.getAncientsPool().iterator().next(), investigator);
         GameListener listener = new GameListener() {
             @Override
             public void onPhaseStart(Game gameState, GameVault gameVault) {
