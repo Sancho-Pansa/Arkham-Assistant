@@ -136,7 +136,22 @@ class PlayerSheetVm : ViewModel() {
 
     private var revision = 0L
     private fun publish() {
-        uiState = PlayerSheetUiState.Ready(investigator.toUiModel(), ++revision)
+        val s = session ?: return
+        val skillSliders = s.positions.mapIndexed { skill, selectedPosition ->
+            SkillSliderUiState(
+                selectedPosition = selectedPosition,
+                availablePositions = (0..3).filterTo(mutableSetOf()) { position ->
+                    s.canSetPosition(skill, position)
+                }
+            )
+        }
+        uiState = PlayerSheetUiState.Ready(
+            investigatorUi = investigator.toUiModel(),
+            skillSliders = skillSliders,
+            remainingFocus = s.remainingFocus,
+            canEditSkills = s.canEditSkills(),
+            revision = ++revision
+        )
     }
 
     private fun save() {
