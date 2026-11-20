@@ -27,22 +27,31 @@ class PlayerSheetVm : ViewModel() {
     private var loaded = false
     private var pendingSave = false
 
-    fun initialize(source: JsonSource, storage: PlayerSessionStore) {
-        if (uiState != PlayerSheetUiState.Loading &&
+    fun initialize(storage: PlayerSessionStore) {
+        if (uiState != PlayerSheetUiState.Loading) return
+        store = storage
+        uiState = PlayerSheetUiState.ChoosingMode
+    }
+
+    fun showPlayerMenu() {
+        error = null
+        uiState = PlayerSheetUiState.ChoosingPlayerAction(store?.hasSnapshot() == true)
+    }
+
+    fun showModeMenu() {
+        uiState = PlayerSheetUiState.ChoosingMode
+    }
+
+    fun restoreSession(source: JsonSource) {
+        if ((uiState as? PlayerSheetUiState.ChoosingPlayerAction)?.canRestore != true &&
             uiState != PlayerSheetUiState.SessionLoadFailed
         ) return
 
-        store = storage
         try {
-            val snapshot = storage.read()
-            if (snapshot == null) {
-                error = null
-                uiState = PlayerSheetUiState.ChoosingMode
-            } else {
-                val name = snapshot.getString("investigator")
-                val player = readInvestigators(source).single { it.name == name }
-                openSession(player, snapshot)
-            }
+            val snapshot = checkNotNull(store?.read()) { "Сохранение не найдено" }
+            val name = snapshot.getString("investigator")
+            val player = readInvestigators(source).single { it.name == name }
+            openSession(player, snapshot)
         } catch (e: Exception) {
             reportSessionLoadError(e)
             uiState = PlayerSheetUiState.SessionLoadFailed
@@ -50,7 +59,7 @@ class PlayerSheetVm : ViewModel() {
     }
 
     fun loadInvestigatorChoices(source: JsonSource) {
-        if (uiState != PlayerSheetUiState.ChoosingMode &&
+        if (uiState !is PlayerSheetUiState.ChoosingPlayerAction &&
             uiState != PlayerSheetUiState.InvestigatorLoadFailed
         ) return
 

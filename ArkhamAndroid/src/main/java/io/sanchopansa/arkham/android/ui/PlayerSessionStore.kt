@@ -8,8 +8,12 @@ import java.io.File
 /** A single atomic, versioned snapshot. Draft skill positions never reach this store. */
 class PlayerSessionStore(context: Context, fileName: String = "player-session.json") {
     private val file = AtomicFile(File(context.filesDir, fileName))
+
+    fun hasSnapshot(): Boolean =
+        file.baseFile.exists() || File(file.baseFile.path + ".bak").exists()
+
     fun read(): JSONObject? {
-        if (!file.baseFile.exists() && !File(file.baseFile.path + ".bak").exists()) return null
+        if (!hasSnapshot()) return null
         val json = JSONObject(file.openRead().bufferedReader().use { it.readText() })
         require(json.getInt("version") == 1) { "Неизвестная версия сохранения" }
         return json
