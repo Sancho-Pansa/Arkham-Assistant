@@ -76,8 +76,25 @@ class PlayerSheetVm : ViewModel() {
             check(it.isNotEmpty()) { "Investigators.json is empty" }
         }
 
-    fun selectInvestigator(player: Investigator) {
-        if (uiState is PlayerSheetUiState.SelectingInvestigator) openSession(player, null)
+    fun examineInvestigator(player: Investigator, scrollIndex: Int, scrollOffset: Int) {
+        val selection = uiState as? PlayerSheetUiState.SelectingInvestigator ?: return
+        uiState = PlayerSheetUiState.ExaminingInvestigator(
+            player,
+            selection.copy(
+                firstVisibleItemIndex = scrollIndex,
+                firstVisibleItemScrollOffset = scrollOffset
+            )
+        )
+    }
+
+    fun returnToInvestigatorList() {
+        val examination = uiState as? PlayerSheetUiState.ExaminingInvestigator ?: return
+        uiState = examination.selection
+    }
+
+    fun selectInvestigator() {
+        val examination = uiState as? PlayerSheetUiState.ExaminingInvestigator ?: return
+        openSession(examination.investigator, null)
     }
 
     fun loadInvestigator(player: Investigator, storage: PlayerSessionStore? = null) {

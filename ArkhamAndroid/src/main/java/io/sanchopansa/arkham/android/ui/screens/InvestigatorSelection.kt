@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
@@ -24,13 +25,18 @@ import io.sanchopansa.arkham.android.ui.PlayerSheetUiState
 import io.sanchopansa.arkham.android.ui.PlayerSheetVm
 
 @Composable
-fun InvestigatorSelect(
+fun InvestigatorSelection(
     playerVm: PlayerSheetVm,
     state: PlayerSheetUiState.SelectingInvestigator,
     contentModifier: Modifier
 ) {
     BackHandler(onBack = playerVm::showPlayerMenu)
+    val listState = rememberLazyListState(
+        initialFirstVisibleItemIndex = state.firstVisibleItemIndex,
+        initialFirstVisibleItemScrollOffset = state.firstVisibleItemScrollOffset
+    )
     LazyColumn(
+        state = listState,
         modifier = contentModifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(1.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -46,9 +52,14 @@ fun InvestigatorSelect(
         items(state.investigators) { investigator ->
             ListItem(
                 headlineContent = { Text(investigator.name) },
+                supportingContent = { Text(investigator.title) },
                 modifier = Modifier
                     .clickable {
-                        playerVm.selectInvestigator(investigator)
+                        playerVm.examineInvestigator(
+                            investigator,
+                            listState.firstVisibleItemIndex,
+                            listState.firstVisibleItemScrollOffset
+                        )
                     }
                     .border(
                         width = 1.dp,

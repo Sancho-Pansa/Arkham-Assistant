@@ -20,10 +20,12 @@ import io.sanchopansa.arkham.android.ui.PlayerSessionStore
 import io.sanchopansa.arkham.android.ui.PlayerSheet
 import io.sanchopansa.arkham.android.ui.PlayerSheetUiState
 import io.sanchopansa.arkham.android.ui.PlayerSheetVm
-import io.sanchopansa.arkham.android.ui.screens.InvestigatorSelect
+import io.sanchopansa.arkham.android.ui.screens.InvestigatorDetails
+import io.sanchopansa.arkham.android.ui.screens.InvestigatorSelection
 import io.sanchopansa.arkham.android.ui.screens.PlayerSaveSelect
 import io.sanchopansa.arkham.android.ui.screens.SelectModeMenu
 import io.sanchopansa.arkham.android.ui.theme.AndroidTheme
+import io.sanchopansa.arkham.android.ui.toUiModel
 
 class MainActivity : ComponentActivity() {
 
@@ -74,12 +76,19 @@ class MainActivity : ComponentActivity() {
                         }
 
                         is PlayerSheetUiState.SelectingInvestigator -> {
-                            InvestigatorSelect(
+                            InvestigatorSelection(
                                 playerVm,
                                 state,
                                 contentModifier
                             )
                         }
+
+                        is PlayerSheetUiState.ExaminingInvestigator -> InvestigatorDetails(
+                            investigator = state.investigator.toUiModel(),
+                            onSelect = playerVm::selectInvestigator,
+                            onBack = playerVm::returnToInvestigatorList,
+                            modifier = contentModifier
+                        )
 
                         is PlayerSheetUiState.Ready -> PlayerSheet(
                             modifier = contentModifier,

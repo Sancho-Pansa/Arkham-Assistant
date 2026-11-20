@@ -5,6 +5,17 @@
     <string name="new_game">Начать новую партию</string>
     <string name="restore_game">Восстановить предыдущую партию</string>
     <string name="choose_investigator">Выберите сыщика</string>
+    <string name="investigator_health">Здоровье — %1$d</string>
+    <string name="investigator_sanity">Рассудок — %1$d</string>
+    <string name="investigator_possessions">Имущество</string>
+    <string name="investigator_money">Деньги — %1$d</string>
+    <string name="investigator_clues">Улики — %1$d</string>
+    <string name="investigator_resources_placeholder">Ресурсы — (TODO)</string>
+    <string name="investigator_location_placeholder">Стартовая локация — (TODO)</string>
+    <string name="investigator_skills">Навыки</string>
+    <string name="investigator_ability">Умение</string>
+    <string name="investigator_examine_back">Назад</string>
+    <string name="investigator_examine_select">Выбрать</string>
     <string name="investigators_load_error">Не удалось загрузить список сыщиков</string>
     <string name="retry_investigator_load">Повторить</string>
 </resources>

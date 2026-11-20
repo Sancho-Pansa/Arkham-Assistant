@@ -9,7 +9,17 @@ sealed interface PlayerSheetUiState {
     data class ChoosingPlayerAction(val canRestore: Boolean) : PlayerSheetUiState
     object SessionLoadFailed : PlayerSheetUiState
     object InvestigatorLoadFailed : PlayerSheetUiState
-    data class SelectingInvestigator(val investigators: List<Investigator>) : PlayerSheetUiState
+    data class SelectingInvestigator(
+        val investigators: List<Investigator>,
+        val firstVisibleItemIndex: Int = 0,
+        val firstVisibleItemScrollOffset: Int = 0
+    ) : PlayerSheetUiState
+
+    data class ExaminingInvestigator(
+        val investigator: Investigator,
+        val selection: SelectingInvestigator
+    ) : PlayerSheetUiState
+
     data class Ready(
         val investigatorUi: InvestigatorUi,
         val skillSliders: List<SkillSliderUiState>,
