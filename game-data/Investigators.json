@@ -25,15 +25,15 @@
     "possessions": {
       "money": 1,
       "clues": 1,
-      "common": {
+      "commons": {
         "random": 1,
         "fixed": []
       },
-      "unique": {
+      "uniques": {
         "random": 1,
         "fixed": []
       },
-      "spell": {
+      "spells": {
         "random": 1,
         "fixed": []
       }
@@ -66,15 +66,15 @@
     "possessions": {
       "money": 9,
       "clues": 0,
-      "common": {
+      "commons": {
         "random": 2,
         "fixed": []
       },
-      "unique": {
+      "uniques": {
         "random": 2,
         "fixed": []
       },
-      "skill": {
+      "skills": {
         "random": 1,
         "fixed": []
       }
@@ -107,15 +107,15 @@
     "possessions": {
       "money": 9,
       "clues": 1,
-      "common": {
+      "commons": {
         "random": 2,
         "fixed": []
       },
-      "spell": {
+      "spells": {
         "random": 2,
         "fixed": []
       },
-      "skill": {
+      "skills": {
         "random": 1,
         "fixed": []
       }
@@ -148,15 +148,15 @@
     "possessions": {
       "money": 7,
       "clues": 2,
-      "common": {
+      "commons": {
         "random": 2,
         "fixed": []
       },
-      "spell": {
+      "spells": {
         "random": 2,
         "fixed": []
       },
-      "skill": {
+      "skills": {
         "random": 1,
         "fixed": []
       }
@@ -189,20 +189,65 @@
     "possessions": {
       "money": 4,
       "clues": 1,
-      "common": {
+      "commons": {
         "random": 1,
         "fixed": []
       },
-      "unique": {
+      "uniques": {
         "random": 2,
         "fixed": []
       },
-      "skill": {
+      "skills": {
         "random": 1,
         "fixed": []
       }
     },
     "location": "Офис газеты"
+  },
+  {
+    "name": "Декстер Дрейк",
+    "title": "Иллюзионист",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 3,
+    "maxSneak": 4,
+    "minFight": 2,
+    "maxWill": 3,
+    "minLore": 0,
+    "maxLuck": 3,
+    "focus": 3,
+    "ability": {
+      "name": "Магический дар",
+      "description": "Всякий раз, когда Декстер берет заклинания из колоды, он тянет на одну карту больше положенного и потом сбрасывает одно из взятых заклинаний по выбору.",
+      "phase": "ANY"
+    },
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 5,
+      "clues": 0,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 2,
+        "fixed": ["Иссушение"]
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Старинная лавка волшбы"
   },
   {
     "name": "Дженни Барнс",
@@ -230,19 +275,19 @@
     "possessions": {
       "money": 10,
       "clues": 0,
-      "common": {
+      "commons": {
         "random": 2,
         "fixed": []
       },
-      "unique": {
+      "uniques": {
         "random": 1,
         "fixed": []
       },
-      "spell": {
+      "spells": {
         "random": 1,
         "fixed": []
       },
-      "skill": {
+      "skills": {
         "random": 1,
         "fixed": []
       }
@@ -275,13 +320,13 @@
     "possessions": {
       "money": 8,
       "clues": 3,
-      "common": {
+      "commons": {
         "random": 2,
         "fixed": [
           "Пистолет 45-го калибра"
         ]
       },
-      "skill": {
+      "skills": {
         "random": 1,
         "fixed": []
       }
@@ -289,21 +334,356 @@
     "location": "Полицейский участок"
   },
   {
-    "name": "Декстер Дрейк",
-    "title": "Иллюзионист",
+    "name": "Кейт Уинтроп",
+    "title": "Ученая",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 4,
+    "sanity": 6,
+    "minSpeed": 1,
+    "maxSneak": 5,
+    "minFight": 1,
+    "maxWill": 3,
+    "minLore": 2,
+    "maxLuck": 4,
+    "focus": 1,
+    "ability": {
+      "name": "Наука!",
+      "description": "В одной локации с Кейт не могут открываться врата и появляться монстры. Если врата и монстры были в локации до прихода Кейт, они не исчезают; кроме того, монстры могут войти в эту локацию в результате движения.\nНе кладите улику в Дом Науки в начале игры.",
+      "phase": "ANY"
+    },
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 7,
+      "clues": 2,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 2,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Лабораторный корпус"
+  },
+  {
+    "name": "Кэролин Ферн",
+    "title": "Психолог",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 4,
+    "sanity": 6,
+    "minSpeed": 0,
+    "maxSneak": 3,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 2,
+    "maxLuck": 5,
+    "focus": 2,
+    "ability": {
+      "name": "Психология",
+      "description": "Кэролин может восстановить 1 единицу рассудка себе или другому сыщику в одной локации с ней. Поднять рассудок персонажа выше предела психолог не может. ",
+      "phase": "UPKEEP"
+    },
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 7,
+      "clues": 1,
+      "commons": {
+        "random": 2,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Аркхэмская лечебница"
+  },
+  {
+    "name": "Майкл МакГленн",
+    "title": "Гангстер",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 7,
+    "sanity": 3,
+    "minSpeed": 2,
+    "maxSneak": 4,
+    "minFight": 3,
+    "maxWill": 4,
+    "minLore": 0,
+    "maxLuck": 3,
+    "focus": 1,
+    "ability": {
+      "name": "Громила",
+      "description": "Любой урон здоровью Майкла сокращается на единицу, но не ниже нуля.",
+      "phase": "ANY"
+    },
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 8,
+      "clues": 0,
+      "commons": {
+        "random": 0,
+        "fixed": [
+          "Динамит",
+          "«Томми-ган»"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Пансион Мамаши"
+  },
+  {
+    "name": "Монтерей Джек",
+    "title": "Археолог",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 7,
+    "sanity": 3,
+    "minSpeed": 1,
+    "maxSneak": 3,
+    "minFight": 2,
+    "maxWill": 3,
+    "minLore": 1,
+    "maxLuck": 5,
+    "focus": 2,
+    "ability": {
+      "name": "Археология",
+      "description": "Всякий раз, когда Монтерей берет уникальные вещи из колоды, он тянет на одну карту больше положенного, а затем сбрасывает одну из взятых вещей по своему выбору.",
+      "phase": "ANY"
+    },
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 7,
+      "clues": 1,
+      "commons": {
+        "random": 0,
+        "fixed": [
+          "Кнут",
+          "Револьвер 38-го калибра"
+        ]
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Лавка древностей"
+  },
+  {
+    "name": "Мэнди Томпсон",
+    "title": "Исследователь",
     "expansion": "Ужас Аркхэма",
     "stamina": 5,
     "sanity": 5,
-    "minSpeed": 3,
-    "maxSneak": 4,
+    "minSpeed": 1,
+    "maxSneak": 5,
+    "minFight": 0,
+    "maxWill": 5,
+    "minLore": 1,
+    "maxLuck": 3,
+    "focus": 2,
+    "ability": {
+      "name": "Исследование",
+      "description": "Раз в раунд после любой проверки навыка, сделанной любым сыщиком, Мэнди может разрешить перебросить все кубики, не давшие успехов. Это относится и к проверкам самой Мэнди.",
+      "phase": "ANY"
+    },
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 6,
+      "clues": 4,
+      "commons": {
+        "random": 2,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Лавка древностей"
+  },
+  {
+    "name": "Пит Мусорщик",
+    "title": "Бродяга",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 0,
+    "maxSneak": 6,
     "minFight": 2,
-    "maxWill": 3,
+    "maxWill": 5,
     "minLore": 0,
     "maxLuck": 3,
-    "focus": 3,
+    "focus": 2,
     "ability": {
-      "name": "Магический дар",
-      "description": "Всякий раз, когда Декстер берет заклинания из колоды, он тянет на одну карту больше положенного и потом сбрасывает одно из взятых заклинаний по выбору.",
+      "name": "Попрошайка",
+      "description": "Всякий раз, когда Пит берет заклинания, простые или уникальные вещи, он может тянуть карты как сверху, так и снизу соответствующих колод. Пит может в любой момент посмотреть нижние карты этих колод.",
+      "phase": "ANY"
+    },
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 1,
+      "clues": 3,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": [
+          "Дюк"
+        ]
+      }
+    },
+    "location": "Лавка древностей"
+  },
+  {
+    "name": "Сестра Мэри",
+    "title": "Монахиня",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 3,
+    "sanity": 7,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 0,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 6,
+    "focus": 1,
+    "ability": {
+      "name": "Ангел-хранитель",
+      "description": "Сестра Мэри никогда не может быть потеряна во времени и пространстве. Вместо этого она возвращается в Аркхэмскую лечебницу (если ее рассудок упал до 0), в Больницу Св. Марии (если ее здоровье упало до 0) либо в Южную церковь (если оба показателя выше нуля).",
+      "phase": "ANY"
+    },
+    "blessing": 1,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 0,
+      "clues": 0,
+      "commons": {
+        "random": 0,
+        "fixed": [
+          "Крест"
+        ]
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": [
+          "Святая вода"
+        ]
+      },
+      "spells": {
+        "random": 2,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Южная церковь"
+  },
+  {
+    "name": "Харви Уолтерс",
+    "title": "Профессор",
+    "expansion": "Ужас Аркхэма",
+    "stamina": 3,
+    "sanity": 7,
+    "minSpeed": 0,
+    "maxSneak": 5,
+    "minFight": 0,
+    "maxWill": 3,
+    "minLore": 3,
+    "maxLuck": 4,
+    "focus": 2,
+    "ability": {
+      "name": "Могучий ум",
+      "description": "Любой урон рассудку профессора Уолтерса сокращается на единицу, но не ниже нуля.",
       "phase": "ANY"
     },
     "blessing": 0,
@@ -313,24 +693,28 @@
     "sheriff": false,
     "possessions": {
       "money": 5,
-      "clues": 0,
-      "common": {
-        "random": 1,
+      "clues": 1,
+      "commons": {
+        "random": 0,
         "fixed": []
       },
-      "unique": {
-        "random": 1,
-        "fixed": []
-      },
-      "spell": {
+      "uniques": {
         "random": 2,
-        "fixed": ["Иссушение"]
+        "fixed": []
       },
-      "skill": {
+      "spells": {
+        "random": 2,
+        "fixed": []
+      },
+      "skills": {
         "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
         "fixed": []
       }
     },
-    "location": "Старинная лавка волшбы"
+    "location": "Здание администрации"
   }
 ]
