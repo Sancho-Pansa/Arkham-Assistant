@@ -2039,5 +2039,460 @@
       }
     },
     "location": "Магазин"
+  },
+  {
+    "name": "Венди Адамс",
+    "title": "Беспризорница",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 4,
+    "sanity": 4,
+    "minSpeed": 2,
+    "maxSneak": 6,
+    "minFight": 0,
+    "maxWill": 3,
+    "minLore": 1,
+    "maxLuck": 5,
+    "focus": 3,
+    "abilities": [
+      {
+        "name": "Знание улиц",
+        "description": "Находясь на улице, Венди автоматически проходит проверки Ухода.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Благословенное дитя",
+        "description": "Венди не может быть арестована или проклята, пока у нее при себе Печать Древних.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Несовершеннолетняя",
+        "description": "Венди не может брать ссуды в банке.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 3,
+      "clues": 3,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": [
+          "Знак Древних"
+        ]
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Банк Аркхэма"
+  },
+  {
+    "name": "Дейзи Уокер",
+    "title": "Библиотекарь",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 0,
+    "maxWill": 5,
+    "minLore": 2,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Вдумчивое чтение",
+        "description": "Дейзи не теряет рассудок при чтении книг.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Железная воля",
+        "description": "При чтении Заклинаний Дейзи тратит на 1 единицу меньше рассудка.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 5,
+      "clues": 1,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": [
+          "Книга Д'Ивона"
+        ]
+      },
+      "spells": {
+        "random": 1,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Библиотека"
+  },
+  {
+    "name": "Лили Чен",
+    "title": "Мастер единоборств",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 4,
+    "sanity": 7,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 2,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Инь и Янь",
+        "description": "Лили может менять пределы своего рассудка и здоровья путем траты собранности, как и прочие навыки.\nУвеличив предел рассудка, Лили восстанавливает 1 единицу рассудка. Повысив предел здоровья она восстанавливает 1 единицу здоровья.\nТекущие значения рассудка или здоровья не могут превышать пределов.",
+        "phase": "UPKEEP"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 2,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": []
+      },
+      "spells": {
+        "random": 1,
+        "fixed": []
+      },
+      "skills": {
+        "random": 0,
+        "fixed": [
+          "Боевые искусства"
+        ]
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Старинная лавка волшбы"
+  },
+  {
+    "name": "Лола Хейес",
+    "title": "Актриса",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 4,
+    "sanity": 6,
+    "minSpeed": 2,
+    "maxSneak": 3,
+    "minFight": 1,
+    "maxWill": 5,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Импровизация",
+        "description": "Один раз за ход Лола может сбросить один из своих навыков и заменить его картой, взятой сверху или снизу колоды навыков. Лола может просматривать нижнюю карту колоды навыков в любое время. ",
+        "phase": "UPKEEP"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 6,
+      "clues": 2,
+      "commons": {
+        "random": 1,
+        "fixed": [
+          "«Дерринджер» 18 калибра"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 1,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Аркхэмская лечебница"
+  },
+  {
+    "name": "Люк Робинсон",
+    "title": "Сновидец",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 3,
+    "sanity": 7,
+    "minSpeed": 0,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 6,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 1,
+    "abilities": [
+      {
+        "name": "Опытный сновидец",
+        "description": "Попадая в Иной мир или будучи потерянным во времени и пространстве, Люк получает 1 улику.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Фамильная ценность",
+        "description": "Короб Врат Люка нельзя потерять или украсть, только если он сам не позволит.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 6,
+      "clues": 1,
+      "commons": {
+        "random": 0,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": [
+          "Короб Врат"
+        ]
+      },
+      "spells": {
+        "random": 2,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Страна Грез"
+  },
+  {
+    "name": "Рекс Мерфи",
+    "title": "Репортер",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 1,
+    "maxSneak": 5,
+    "minFight": 1,
+    "maxWill": 3,
+    "minLore": 2,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Расследование",
+        "description": "Получая улики, Рекс получает на 1 улику больше.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Семейное проклятие",
+        "description": "Рекс никогда не выполняет бросок на избавление от проклятия. Он может потерять проклятие, только будучи благословленным.",
+        "phase": "UPKEEP"
+      }
+    ],
+    "blessing": -1,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 3,
+      "clues": 3,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 2,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Офис газеты"
+  },
+  {
+    "name": "Тони Морган",
+    "title": "Охотник за головами",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 7,
+    "sanity": 3,
+    "minSpeed": 1,
+    "maxSneak": 3,
+    "minFight": 1,
+    "maxWill": 5,
+    "minLore": 0,
+    "maxLuck": 6,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Аккуратное убийство",
+        "description": "Трофеи монстров имеют на 1 стойкости.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Кровавый заработок",
+        "description": "один раз за ход, находясь на улице, Тони может обменять 1 трофей монстра на число денег, равное его стойкости.",
+        "phase": "UPKEEP"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 6,
+      "clues": 3,
+      "commons": {
+        "random": 1,
+        "fixed": [
+          "Наручники"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Больница Св. Марии"
+  },
+  {
+    "name": "Чарли Кейн",
+    "title": "Политик",
+    "expansion": "Ужас Кингспорта",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 0,
+    "maxSneak": 4,
+    "minFight": 2,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Связи",
+        "description": "Чарли может брать тех союзников, которые были выведены из игры.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Миротворец",
+        "description": "Потратив 2 улики, Чарли может предотвратить рост уровня ужаса на 1. Повторять эту операцию можно неограниченное число раз. ",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 9,
+      "clues": 0,
+      "commons": {
+        "random": 0,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Здание администрации"
   }
 ]
