@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import io.sanchopansa.arkham.android.R
 import io.sanchopansa.arkham.android.ui.models.InvestigatorUi
+import io.sanchopansa.arkham.core.Phase
 
 @Composable
 fun InvestigatorDetails(
@@ -88,7 +89,21 @@ fun InvestigatorDetails(
                 )
                 for (ability in investigator.abilities) {
                     Text(ability.name, style = MaterialTheme.typography.titleMedium)
-                    Text("${ability.phase}: ${ability.description}")
+                    val phaseLabel = when (ability.phase) {
+                        Phase.UPKEEP -> R.string.phase_upkeep
+                        Phase.MOVEMENT -> R.string.phase_movement
+                        Phase.ARKHAM_ENCOUNTER -> R.string.phase_arkham_encounter
+                        Phase.OTHER_WORLD_ENCOUNTER -> R.string.phase_other_world_encounter
+                        Phase.MYTHOS -> R.string.phase_mythos
+                        Phase.ANY -> R.string.phase_any
+                    }
+                    Text(
+                        stringResource(
+                            R.string.investigator_ability_description,
+                            stringResource(phaseLabel),
+                            ability.description
+                        )
+                    )
                 }
             }
 

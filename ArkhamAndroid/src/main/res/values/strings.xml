@@ -14,6 +14,13 @@
     <string name="investigator_location_placeholder">Стартовая локация — (TODO)</string>
     <string name="investigator_skills">Навыки</string>
     <string name="investigator_ability">Умения</string>
+    <string name="investigator_ability_description">%1$s: %2$s</string>
+    <string name="phase_upkeep">Передышка</string>
+    <string name="phase_movement">Движение</string>
+    <string name="phase_arkham_encounter">Контакты в Аркхэме</string>
+    <string name="phase_other_world_encounter">Контакты в Иных мирах</string>
+    <string name="phase_mythos">Миф</string>
+    <string name="phase_any">Любая фаза</string>
     <string name="investigator_examine_back">Назад</string>
     <string name="investigator_examine_select">Выбрать</string>
     <string name="investigators_load_error">Не удалось загрузить список сыщиков</string>
