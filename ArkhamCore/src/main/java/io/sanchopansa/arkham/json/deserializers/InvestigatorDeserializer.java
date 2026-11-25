@@ -1,12 +1,19 @@
 package io.sanchopansa.arkham.json.deserializers;
 
-import com.google.gson.*;
-import io.sanchopansa.arkham.core.Expansion;
-import io.sanchopansa.arkham.core.Phase;
-import io.sanchopansa.arkham.core.investigators.Investigator;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import io.sanchopansa.arkham.core.Expansion;
+import io.sanchopansa.arkham.core.Phase;
+import io.sanchopansa.arkham.core.investigators.Investigator;
 
 public class InvestigatorDeserializer implements JsonDeserializer<Investigator> {
     @Override
@@ -37,7 +44,7 @@ public class InvestigatorDeserializer implements JsonDeserializer<Investigator> 
                         jsonObject.get("description").getAsString(),
                         Phase.valueOf(jsonObject.get("phase").getAsString())
                 ))
-                .toList();
+                .collect(Collectors.toList()); // not "toList" to fit the old API requirements
 
         Investigator investigator = new Investigator(
                 e,
