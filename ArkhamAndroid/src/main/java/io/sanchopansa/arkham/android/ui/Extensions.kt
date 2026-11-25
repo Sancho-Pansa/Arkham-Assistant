@@ -16,6 +16,5 @@ fun Investigator.toUiModel() = InvestigatorUi(
     speedSneak = SkillUi("Скорость", "Скрытность", ss.leftBlue, ss.leftRed, ss.sliderIndex),
     fightWill = SkillUi("Сила", "Воля", fw.leftBlue, fw.leftRed, fw.sliderIndex),
     loreLuck = SkillUi("Знания", "Удача", ll.leftBlue, ll.leftRed, ll.sliderIndex),
-    abilityName = ability.name,
-    abilityDescription = ability.description
+    abilities = abilities
 )

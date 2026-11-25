@@ -86,8 +86,10 @@ fun InvestigatorDetails(
                     stringResource(R.string.investigator_ability),
                     style = MaterialTheme.typography.titleLarge
                 )
-                Text(investigator.abilityName, style = MaterialTheme.typography.titleMedium)
-                Text(investigator.abilityDescription)
+                for (ability in investigator.abilities) {
+                    Text(ability.name, style = MaterialTheme.typography.titleMedium)
+                    Text("${ability.phase}: ${ability.description}")
+                }
             }
 
             Text(stringResource(R.string.investigator_location_placeholder))

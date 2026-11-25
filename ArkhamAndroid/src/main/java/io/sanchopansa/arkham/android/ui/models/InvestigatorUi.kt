@@ -1,5 +1,7 @@
 package io.sanchopansa.arkham.android.ui.models;
 
+import io.sanchopansa.arkham.core.investigators.Investigator
+
 data class InvestigatorUi(
     val name: String,
     val title: String,
@@ -12,8 +14,7 @@ data class InvestigatorUi(
     val speedSneak: SkillUi,
     val fightWill: SkillUi,
     val loreLuck: SkillUi,
-    val abilityName: String,
-    val abilityDescription: String
+    val abilities: List<Investigator.Ability>
 )
 
 data class SkillUi(
