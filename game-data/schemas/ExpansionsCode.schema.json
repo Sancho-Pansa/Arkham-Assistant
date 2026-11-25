@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sanchopansa.io/schemas/arkham/expansions.schema.json",
+  "title": "Enum of Arkham Expansions",
+  "description": "",
+  "type": "string",
+  "enum": [
+    "UPKEEP",
+    "MOVEMENT",
+    "ARKHAM_ENCOUNTER",
+    "OTHER_WORLD_ENCOUNTER",
+    "MYTHOS",
+    "ANY"
+  ]
+}

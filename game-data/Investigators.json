@@ -806,5 +806,385 @@
       }
     },
     "location": "Здание администрации"
+  },
+  {
+    "name": "Диана Стэнли",
+    "title": "Бывшая культистка",
+    "expansion": "Ужас Данвича",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 0,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 3,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Верная сестра",
+        "description": "Диана никогда не может потерять своё «Членство в Ложе Серебряных Сумерек».",
+        "phase": "ANY"
+      },
+      {
+        "name": "Темная интуиция",
+        "description": "Всякий раз, когда на трек Древнего добавляется жетон безысходности, Диана восстанавливает 1 рассудок или 1 здоровье. Всякий раз, когда поднимается уровень ужаса, Диана получает 1 Улику.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": true,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 2,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": []
+      },
+      "spells": {
+        "random": 1,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Магазин"
+  },
+  {
+    "name": "Жаклин Файн",
+    "title": "Экстрасенс",
+    "expansion": "Ужас Данвича",
+    "stamina": 3,
+    "sanity": 7,
+    "minSpeed": 1,
+    "maxSneak": 3,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 2,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Предвидение",
+        "description": "Один раз за раунд, когда в фазе Мифа вытягивается карта Мифа (кроме карты «История продолжается...»), Жаклин может потратить 2 улики,чтобы сбросить эту карту до того, как она вступит в силу. Вместо сброшенной карты Мифа тянется новая.",
+        "phase": "MYTHOS"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 7,
+      "clues": 2,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": [
+          "Заколдованная драгоценность"
+        ]
+      },
+      "spells": {
+        "random": 2,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Лавка древностей"
+  },
+  {
+    "name": "Лео Андерсон",
+    "title": "Лидер экспедиции",
+    "expansion": "Ужас Данвича",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Лидерство",
+        "description": "Один раз за раунд Лео может предотвратить потерю 1 рассудка или 1 здоровья любым сыщиком. ",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 2,
+      "commons": {
+        "random": 2,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Речной порт"
+  },
+  {
+    "name": "Мари Ламбо",
+    "title": "Певица",
+    "expansion": "Ужас Данвича",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 0,
+    "maxWill": 5,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Ведьмина кровь",
+        "description": "Один раз за игру в начале своей фазы передышки Мари может снять 1 жетон безысходности с трека Древнего.",
+        "phase": "UPKEEP"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 2,
+      "commons": {
+        "random": 0,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 0,
+        "fixed": [
+          "Колдовской клинок"
+        ]
+      },
+      "spells": {
+        "random": 2,
+        "fixed": [
+          "Голос Ра"
+        ]
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Пансион Мамаши"
+  },
+  {
+    "name": "Марк Хэрриган",
+    "title": "Солдат",
+    "expansion": "Ужас Данвича",
+    "stamina": 7,
+    "sanity": 3,
+    "minSpeed": 1,
+    "maxSneak": 5,
+    "minFight": 3,
+    "maxWill": 3,
+    "minLore": 0,
+    "maxLuck": 4,
+    "focus": 1,
+    "abilities": [
+      {
+        "name": "Человек-армия",
+        "description": "Марк не может быть арестован или задержан.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 3,
+      "commons": {
+        "random": 0,
+        "fixed": [
+          "Огнемет",
+          "Коктейль Молотова"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Южная церковь"
+  },
+  {
+    "name": "Рита Янг",
+    "title": "Спортсменка",
+    "expansion": "Ужас Данвича",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 3,
+    "maxSneak": 4,
+    "minFight": 2,
+    "maxWill": 4,
+    "minLore": 0,
+    "maxLuck": 3,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Гибкость",
+        "description": "Всякий раз, когда Рита берёт травмы или безумия, она тянет на одну карту больше положенного, а затем сбрасывает одну из них, оставляя себе другие. Кроме того, если Рита получает дубликат карты травмы или безумия, которая у неё уже есть, вторая карта не имеет никакого эффекта.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": true,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 2,
+      "commons": {
+        "random": 2,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Полицейский участок"
+  },
+  {
+    "name": "Уилсон Ричардс",
+    "title": "Умелец",
+    "expansion": "Ужас Данвича",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 1,
+    "maxSneak": 5,
+    "minFight": 1,
+    "maxWill": 3,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 255,
+    "abilities": [
+      {
+        "name": "Мастер на все руки",
+        "description": "В фазе подготовки Уилсон может изменять навыки как угодно (как если бы у него была бесконечная собранность).",
+        "phase": "UPKEEP"
+      },
+      {
+        "name": "Случайная работа",
+        "description": "В фазе контактов в Аркхэме Уилсон может получить $1 вместо контакта в любой локации (кроме Иных миров и улиц).",
+        "phase": "ARKHAM_ENCOUNTER"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 0,
+      "commons": {
+        "random": 0,
+        "fixed": [
+          "Виски",
+          "Дробовик",
+          "Мотоцикл"
+        ]
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Вокзал"
   }
 ]

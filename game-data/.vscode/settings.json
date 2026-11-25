@@ -1,0 +1,10 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "Investigators.json"
+      ],
+      "url": "/schemas/Investigator.schema.json"
+    }
+  ]
+}

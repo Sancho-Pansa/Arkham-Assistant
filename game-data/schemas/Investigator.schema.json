@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "sanchopansa.io/schemas/arkham/investigator.schema.json",
+  "$id": "investigator.schema.json",
   "title": "InvestigatorList",
   "description": "Schema for List of Investigators",
   "type": "array",
@@ -31,23 +31,27 @@
         "sanity": {
           "type": "integer"
         },
-        "ability": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
+        "abilities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "phase": {
+                "$ref": "ExpansionsCode.schema.json"
+              }
             },
-            "description": {
-              "type": "string"
-            },
-            "phase": {
-              "$ref": "Phases.schema.json"
-            }
-          },
-          "required": [
-            "name",
-            "description"
-          ]
+            "required": [
+              "name",
+              "description",
+              "phase"
+            ]
+          }
         },
         "possessions": {
           "type": "object",
@@ -56,6 +60,12 @@
               "type": "integer"
             },
             "clues": {
+              "type": "integer"
+            },
+            "gates": {
+              "type": "integer"
+            },
+            "trophies": {
               "type": "integer"
             },
             "commons": {
@@ -208,7 +218,7 @@
         "title",
         "stamina",
         "sanity",
-        "ability",
+        "abilities",
         "possessions",
         "focus",
         "minSpeed",
