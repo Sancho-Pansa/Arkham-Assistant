@@ -27,7 +27,7 @@ public class Investigator extends AbstractGameElement {
     private final Skill FW; // Fight-Will
     private final Skill LL; // Lore-Luck
     private final Stat focus;
-    private final Ability ability;
+    private final List<Ability> abilities;
     private boolean alive = true;
 
     // Вторичные характеристики
@@ -68,9 +68,7 @@ public class Investigator extends AbstractGameElement {
                         int maxWill,
                         int minLore,
                         int maxLuck,
-                        String abilityName,
-                        String abilityDescription,
-                        Phase abilityPhase
+                        List<Ability> abilities
     ) {
         super(e);
         this.name = name;
@@ -81,7 +79,7 @@ public class Investigator extends AbstractGameElement {
         this.SS = new Skill(minSpeed, maxSneak);
         this.FW = new Skill(minFight, maxWill);
         this.LL = new Skill(minLore, maxLuck);
-        this.ability = new Ability(this, abilityName, abilityDescription, abilityPhase);
+        this.abilities = abilities;
     }
 
     public Investigator(Expansion e,
@@ -96,9 +94,7 @@ public class Investigator extends AbstractGameElement {
                         int maxWill,
                         int minLore,
                         int maxLuck,
-                        String abilityName,
-                        String abilityDescription,
-                        Phase abilityPhase,
+                        List<Ability> abilities,
                         int randomCommons,
                         String[] fixedCommons,
                         int randomUniques,
@@ -119,7 +115,7 @@ public class Investigator extends AbstractGameElement {
         this.SS = new Skill(minSpeed, maxSneak);
         this.FW = new Skill(minFight, maxWill);
         this.LL = new Skill(minLore, maxLuck);
-        this.ability = new Ability(this, abilityName, abilityDescription, abilityPhase);
+        this.abilities = abilities;
         this.initialCommons = new InitialPossessions(randomCommons, fixedCommons);
         this.initialUniques = new InitialPossessions(randomUniques, fixedUniques);
         this.initialSpells = new InitialPossessions(randomSpells, fixedSpells);
@@ -138,9 +134,7 @@ public class Investigator extends AbstractGameElement {
                         int maxWill,
                         int minLore,
                         int maxLuck,
-                        String abilityName,
-                        String abilityDescription,
-                        Phase abilityPhase
+                        List<Ability> abilities
     ) {
         super(Expansion.VANILLA);
         this.name = name;
@@ -151,7 +145,7 @@ public class Investigator extends AbstractGameElement {
         this.SS = new Skill(minSpeed, maxSneak);
         this.FW = new Skill(minFight, maxWill);
         this.LL = new Skill(minLore, maxLuck);
-        this.ability = new Ability(this, abilityName, abilityDescription, abilityPhase);
+        this.abilities = abilities;
     }
 
     public String getName() {
@@ -170,8 +164,8 @@ public class Investigator extends AbstractGameElement {
         return sanity;
     }
 
-    public Ability getAbility() {
-        return ability;
+    public List<Ability> getAbilities() {
+        return abilities;
     }
 
     public Skill getSS() {
@@ -482,7 +476,7 @@ public class Investigator extends AbstractGameElement {
         sb.append(",\n\tFight/Will=").append(FW);
         sb.append(",\n\tLore/Luck=").append(LL);
         sb.append(",\n\tfocus=").append(focus);
-        sb.append(",\n\tability=").append(ability);
+        sb.append(",\n\tability=").append(abilities);
         sb.append(",\n\tblessing=").append(blessing);
         sb.append(",\n\thas retainer=").append(hasRetainer);
         sb.append(",\n\thas loan=").append(hasLoan);
@@ -512,7 +506,7 @@ public class Investigator extends AbstractGameElement {
         CURSED   // Проклят
     }
 
-    public record Ability(Investigator investigator, String name, String description, Phase phase) {
+    public record Ability(String name, String description, Phase phase) {
         @Override
         public String toString() {
             return "InvestigatorAbility {" +

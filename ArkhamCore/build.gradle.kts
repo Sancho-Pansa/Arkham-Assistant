@@ -17,7 +17,7 @@ dependencies {
     testRuntimeOnly(libs.junit.platform.launcher)
 }
 
-sourceSets.named("test") {
+sourceSets.named("main") {
     resources.srcDir(rootProject.layout.projectDirectory.dir("game-data"))
 }
 

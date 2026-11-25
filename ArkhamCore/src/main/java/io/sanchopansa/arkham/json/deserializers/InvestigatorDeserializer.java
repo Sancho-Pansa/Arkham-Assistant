@@ -28,10 +28,16 @@ public class InvestigatorDeserializer implements JsonDeserializer<Investigator> 
 
         int focus = jsonInvestigator.get("focus").getAsInt();
 
-        JsonObject ability = jsonInvestigator.get("ability").getAsJsonObject();
-        String abilityName = ability.get("name").getAsString();
-        String abilityDescription = ability.get("description").getAsString();
-        Phase abilityPhase = Phase.valueOf(ability.get("phase").getAsString());
+        JsonArray abilitiesJson = jsonInvestigator.get("abilities").getAsJsonArray();
+        var abilities = abilitiesJson
+                .asList()
+                .stream()
+                .map((JsonElement::getAsJsonObject)).map(jsonObject -> new Investigator.Ability(
+                        jsonObject.get("name").getAsString(),
+                        jsonObject.get("description").getAsString(),
+                        Phase.valueOf(jsonObject.get("phase").getAsString())
+                ))
+                .toList();
 
         Investigator investigator = new Investigator(
                 e,
@@ -46,9 +52,7 @@ public class InvestigatorDeserializer implements JsonDeserializer<Investigator> 
                 maxWill,
                 minLore,
                 maxLuck,
-                abilityName,
-                abilityDescription,
-                abilityPhase
+                abilities
         );
 
         JsonObject possessions = jsonInvestigator.get("possessions").getAsJsonObject();
