@@ -1186,5 +1186,858 @@
       }
     },
     "location": "Вокзал"
+  },
+  {
+    "name": "\"Обреченный\" О'Тул",
+    "title": "Бывший заключенный",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 7,
+    "sanity": 3,
+    "minSpeed": 0,
+    "maxSneak": 5,
+    "minFight": 2,
+    "maxWill": 3,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Трудная жизнь",
+        "description": "Любая фаза: один раз за проверку навыка “Обреченный” может бросить 2 дополнительных кубика за каждую выпавшую 1.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Судимость",
+        "description": "\"Обреченный\" не может стать помощником шерифа или получить банковскую ссуду.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 5,
+      "clues": 3,
+      "commons": {
+        "random": 2,
+        "fixed": [
+          "Топор"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Пансион Мамаши"
+  },
+  {
+    "name": "Агнес Бейкер",
+    "title": "Официантка",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 1,
+    "maxSneak": 3,
+    "minFight": 1,
+    "maxWill": 3,
+    "minLore": 3,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Память о завоевании",
+        "description": "Боевая сила заклинаний увеличивается на число рук, необходимых для их поддержки.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Сила крови",
+        "description": "Для оплаты цены могущества заклинаний Агнес может тратить здоровье вместо рассудка.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 5,
+      "clues": 3,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 1,
+        "fixed": [
+          "Лишение силы"
+        ]
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Ресторанчик Вельмы"
+  },
+  {
+    "name": "Акачи Ониеле",
+    "title": "Шаман",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 3,
+    "sanity": 7,
+    "minSpeed": 2,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 2,
+    "maxLuck": 3,
+    "focus": 1,
+    "abilities": [
+      {
+        "name": "Страж покрова",
+        "description": "Акачи тратит на 1 Улику меньше на запечатывание врат.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Тайные ритуалы",
+        "description": "Акачи получает бонус +1 ко всем проверкам на закрытие врат. Кроме того, Акачи может запечатывать врата всегда, вне зависимости от игровых условий.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 3,
+      "clues": 1,
+      "gates": 1,
+      "trophies": 0,
+      "commons": {
+        "random": 0,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 2,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Старинная лавка волшбы"
+  },
+  {
+    "name": "Джордж Барнаби",
+    "title": "Юрист",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 3,
+    "sanity": 7,
+    "minSpeed": 0,
+    "maxSneak": 5,
+    "minFight": 0,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 5,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Знание - сила",
+        "description": "При трате улик в ходе проверки навыка Джордж может вместо броска дополнительного кубика добавить 1 к результату, выпавшему на одном из кубиков.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Выкуп",
+        "description": "Джордж может потратить $2, чтобы предотвратить арест сыщика, включая себя.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": true,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 7,
+      "clues": 0,
+      "commons": {
+        "random": 0,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 1,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Библиотека"
+  },
+  {
+    "name": "Зои Самарас",
+    "title": "Повар",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 7,
+    "sanity": 3,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 5,
+    "focus": 1,
+    "abilities": [
+      {
+        "name": "Инстинкт убийцы",
+        "description": "В сражении с монстрами или Древним Зои игнорирует свойства физического или магического сопротивления. Физический или магический иммунитет считаются сопротивлением.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 2,
+      "clues": 4,
+      "commons": {
+        "random": 0,
+        "fixed": [
+          "Крест",
+          "Нож"
+        ]
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Вокзал"
+  },
+  {
+    "name": "Мин Ти Пан",
+    "title": "Секретарь",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 4,
+    "sanity": 6,
+    "minSpeed": 2,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 3,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Единение",
+        "description": "Мин получает +1 ко всем проверкам навыков, если у нее союзник или находится в одной локации с другим сыщиком.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Командные усилия",
+        "description": "Мин может выбрать другого сыщика в одной с ней локации. Этот сыщик получает +1 ко всем проверкам навыков до конца хода.",
+        "phase": "UPKEEP"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 2,
+      "commons": {
+        "random": 2,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": [
+          "Король в Желтом"
+        ]
+      },
+      "spells": {
+        "random": 1,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Больница Св. Марии"
+  },
+  {
+    "name": "Норман Уизерс",
+    "title": "Астроном",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 4,
+    "sanity": 6,
+    "minSpeed": 0,
+    "maxSneak": 4,
+    "minFight": 0,
+    "maxWill": 4,
+    "minLore": 2,
+    "maxLuck": 5,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Астрология",
+        "description": "Когда Норман закрывает или запечатывает врата, он может выбрать любой символ Иного мира (кроме месяца). С поля убираются монстры с этим символом.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 3,
+      "clues": 3,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 1,
+        "fixed": [
+          "Поиск Врат"
+        ]
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Здание администрации"
+  },
+  {
+    "name": "Патриция Хэтэуэй",
+    "title": "Скрипачка",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 2,
+    "maxLuck": 3,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Вдохновение",
+        "description": "Патриция может позволить другим сыщикам тратить ее Улики, даже если они не находятся в одной с ней локации.",
+        "phase": "ANY"
+      },
+      {
+        "name": "Зловещие сны",
+        "description": "Каждый раз, когда открываются врата, Патриция получает 1 Улику. Кроме того, она получает 5 Улик, когда на лист Древнего кладется девятый жетон пробуждения.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 2,
+      "clues": 3,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 1,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Лавка древностей"
+  },
+  {
+    "name": "Роланд Бэнкс",
+    "title": "Федерал",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 5,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 3,
+    "abilities": [
+      {
+        "name": "Сообразительность",
+        "description": "Роланд получает 1 Улику, если у него при себе меньше 2 Улик.",
+        "phase": "UPKEEP"
+      },
+      {
+        "name": "Финансовая поддержка",
+        "description": "Роланд получает $1, если у него при себе меньше $2.",
+        "phase": "UPKEEP"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 3,
+      "clues": 2,
+      "commons": {
+        "random": 1,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 1,
+        "fixed": []
+      }
+    },
+    "location": "Аркхэмская лечебница"
+  },
+  {
+    "name": "Сайлас Марш",
+    "title": "Моряк",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 4,
+    "sanity": 6,
+    "minSpeed": 1,
+    "maxSneak": 4,
+    "minFight": 3,
+    "maxWill": 4,
+    "minLore": 1,
+    "maxLuck": 3,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Опытный моряк",
+        "description": "Находясь в водной локации, Сайлас может за 2 единицы движения переместиться в любую другую водную локацию. Кроме того, находясь в водной локации Сайлас получает +2 ко всем проверкам навыков.",
+        "phase": "MOVEMENT"
+      },
+      {
+        "name": "Грязнокровка",
+        "description": "Каждый раз, когда Сайлас тянет карты Иннсмутской внешности, он должен брать на одну больше.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 7,
+      "clues": 2,
+      "commons": {
+        "random": 2,
+        "fixed": [
+          "Кавалерийская сабля"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Речной порт"
+  },
+  {
+    "name": "Томми Малдун",
+    "title": "Молодой полицейский",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 4,
+    "sanity": 6,
+    "minSpeed": 1,
+    "maxSneak": 3,
+    "minFight": 2,
+    "maxWill": 4,
+    "minLore": 0,
+    "maxLuck": 6,
+    "focus": 1,
+    "abilities": [
+      {
+        "name": "Герой",
+        "description": "Перед тем, как будет разыграна карта Мифа, Томми может заставить монстра(ов) из соседних локаций переместиться к нему, вне зависимости от их типа передвижения.",
+        "phase": "MYTHOS"
+      },
+      {
+        "name": "Полицейский",
+        "description": "Томми не может быть арестован. Кроме того, чтобы стать помощником шерифа, он должен заплатить только 1 трофей врат или трофеи монстров на 5 единиц стойкости.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 2,
+      "clues": 2,
+      "commons": {
+        "random": 2,
+        "fixed": [
+          "Карта Аркхэма",
+          "Ружьё"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Полицейский участок"
+  },
+  {
+    "name": "Уильям Йорик",
+    "title": "Могильщик",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 0,
+    "maxSneak": 4,
+    "minFight": 1,
+    "maxWill": 6,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 1,
+    "abilities": [
+      {
+        "name": "Секреты мертвых",
+        "description": "Уильям может тратить трофеи монстров, как если бы они были уликами (1 трофей = 1 улика).",
+        "phase": "ANY"
+      },
+      {
+        "name": "Глубокие могилы",
+        "description": "При трате трофея монстра Уильям может убрать его из игры вместо того, чтобы вернуть в резерв.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 4,
+      "clues": 0,
+      "trophies": 3,
+      "commons": {
+        "random": 2,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Южная церковь"
+  },
+  {
+    "name": "Урсула Даунз",
+    "title": "Исследователь",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 5,
+    "sanity": 5,
+    "minSpeed": 2,
+    "maxSneak": 3,
+    "minFight": 1,
+    "maxWill": 4,
+    "minLore": 0,
+    "maxLuck": 5,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Везде успевает",
+        "description": "Урсула может вступать в контакт в локации даже после использования ее особой возможности.",
+        "phase": "ARKHAM_ENCOUNTER"
+      },
+      {
+        "name": "Авантюристка",
+        "description": "Вступая в контакт, Урсула может до выполнения любых проверок потратить 1 Улику, чтобы полностью отменить событие.",
+        "phase": "ARKHAM_ENCOUNTER"
+      },
+      {
+        "name": "Выбор",
+        "description": "Урсула может начать игру в любой локации или на улице (но не в Ином мире).",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 1,
+      "clues": 4,
+      "commons": {
+        "random": 2,
+        "fixed": []
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Вокзал"
+  },
+  {
+    "name": "Финн Эдвардс",
+    "title": "Самогонщик",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 6,
+    "sanity": 4,
+    "minSpeed": 3,
+    "maxSneak": 5,
+    "minFight": 0,
+    "maxWill": 3,
+    "minLore": 1,
+    "maxLuck": 4,
+    "focus": 1,
+    "abilities": [
+      {
+        "name": "Изворотливость",
+        "description": "При перемещении монстров с символом месяца Финн тоже может переместиться, как обычный монстр. Проверки Ухода в этом случае не выполняются.",
+        "phase": "MYTHOS"
+      },
+      {
+        "name": "Крепкая хватка",
+        "description": "Финн никогда не сбрасывает предметы или деньги, даже если сходит с ума или теряет сознание. Все траты предметов или денег происходят, как обычно.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": true,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 8,
+      "clues": 0,
+      "commons": {
+        "random": 2,
+        "fixed": [
+          "Виски"
+        ]
+      },
+      "uniques": {
+        "random": 2,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 2,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Банк Аркхэма"
+  },
+  {
+    "name": "Хэнк Сэмсон",
+    "title": "Фермер",
+    "expansion": "Ужас Иннсмута",
+    "stamina": 6,
+    "sanity": 5,
+    "minSpeed": 2,
+    "maxSneak": 4,
+    "minFight": 2,
+    "maxWill": 3,
+    "minLore": 0,
+    "maxLuck": 4,
+    "focus": 2,
+    "abilities": [
+      {
+        "name": "Толстолобый",
+        "description": " Хэнк не проходит проверки ужаса при встрече с монстром. Он должен пройти эту проверку, если проваливает проверку ухода или первый бросок на битву в сражении с монстром.",
+        "phase": "ANY"
+      }
+    ],
+    "blessing": 0,
+    "retainer": false,
+    "loan": false,
+    "cultist": false,
+    "sheriff": false,
+    "possessions": {
+      "money": 3,
+      "clues": 1,
+      "commons": {
+        "random": 2,
+        "fixed": [
+          "Еда"
+        ]
+      },
+      "uniques": {
+        "random": 1,
+        "fixed": []
+      },
+      "spells": {
+        "random": 0,
+        "fixed": []
+      },
+      "skills": {
+        "random": 1,
+        "fixed": []
+      },
+      "allies": {
+        "random": 0,
+        "fixed": []
+      }
+    },
+    "location": "Магазин"
   }
 ]
