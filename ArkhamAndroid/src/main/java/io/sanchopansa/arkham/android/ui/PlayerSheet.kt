@@ -67,18 +67,20 @@ fun PlayerSheet(
             TextButton(onClick = { vm.changeClueTokens(-1) }) { Text("− улика") }
             TextButton(onClick = { vm.changeClueTokens(1) }) { Text("+ улика") }
         }
-        Text(if (s.isSetup) "Свободная расстановка навыков" else if (s.isSkillsConfirmed) "Навыки" else "Доступная концентрация: ${s.remainingFocus}")
+        Text(if (s.isSetup) "Свободная расстановка навыков" else if (s.isSkillsConfirmed) "Навыки" else "Доступная концентрация: ${state.remainingFocus}")
         val skills = listOf(p.speedSneak, p.fightWill, p.loreLuck)
         skills.forEachIndexed { index, skill ->
+            val slider = state.skillSliders[index]
             BlueRedSlider(
                 minBlue = skill.topValue,
                 blueLabel = skill.topLabel,
                 maxRed = skill.bottomValue,
                 redLabel = skill.bottomLabel,
-                initialIndex = s.positions[index],
-                enabled = s.canEditSkills() && error == null,
-                canSelect = { position -> s.canSetPosition(index, position) },
+                initialIndex = slider.selectedPosition,
+                enabled = state.canEditSkills && error == null,
+                canSelect = { it in slider.availablePositions },
                 onSelect = { vm.moveSkill(index, it) })
+
         }
         if (s.isSetup) Button(
             onClick = vm::startGame,

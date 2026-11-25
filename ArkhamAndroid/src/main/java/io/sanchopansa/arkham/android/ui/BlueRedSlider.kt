@@ -35,11 +35,17 @@ fun BlueRedSlider(
             Text("$blueLabel / $redLabel")
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
                 repeat(4) { index ->
+                    val unreachable = enabled && !canSelect(index)
                     OutlinedButton(
-                        onClick = { onSelect(index) }, enabled = enabled && canSelect(index),
+                        onClick = { onSelect(index) }, enabled = enabled && !unreachable,
                         contentPadding = PaddingValues(8.dp),
                         colors = ButtonDefaults.outlinedButtonColors(
-                            containerColor = if (index == initialIndex) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface
+                            containerColor = if (index == initialIndex) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface,
+                            disabledContainerColor = if (unreachable) {
+                                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
+                            } else {
+                                Color.Transparent
+                            }
                         ),
                         border = BorderStroke(
                             1.dp,

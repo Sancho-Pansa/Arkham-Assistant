@@ -27,22 +27,31 @@ class PlayerSheetVm : ViewModel() {
     private var loaded = false
     private var pendingSave = false
 
-    fun initialize(source: JsonSource, storage: PlayerSessionStore) {
-        if (uiState != PlayerSheetUiState.Loading &&
+    fun initialize(storage: PlayerSessionStore) {
+        if (uiState != PlayerSheetUiState.Loading) return
+        store = storage
+        uiState = PlayerSheetUiState.ChoosingMode
+    }
+
+    fun showPlayerMenu() {
+        error = null
+        uiState = PlayerSheetUiState.ChoosingPlayerAction(store?.hasSnapshot() == true)
+    }
+
+    fun showModeMenu() {
+        uiState = PlayerSheetUiState.ChoosingMode
+    }
+
+    fun restoreSession(source: JsonSource) {
+        if ((uiState as? PlayerSheetUiState.ChoosingPlayerAction)?.canRestore != true &&
             uiState != PlayerSheetUiState.SessionLoadFailed
         ) return
 
-        store = storage
         try {
-            val snapshot = storage.read()
-            if (snapshot == null) {
-                error = null
-                uiState = PlayerSheetUiState.ChoosingMode
-            } else {
-                val name = snapshot.getString("investigator")
-                val player = readInvestigators(source).single { it.name == name }
-                openSession(player, snapshot)
-            }
+            val snapshot = checkNotNull(store?.read()) { "Сохранение не найдено" }
+            val name = snapshot.getString("investigator")
+            val player = readInvestigators(source).single { it.name == name }
+            openSession(player, snapshot)
         } catch (e: Exception) {
             reportSessionLoadError(e)
             uiState = PlayerSheetUiState.SessionLoadFailed
@@ -50,7 +59,7 @@ class PlayerSheetVm : ViewModel() {
     }
 
     fun loadInvestigatorChoices(source: JsonSource) {
-        if (uiState != PlayerSheetUiState.ChoosingMode &&
+        if (uiState !is PlayerSheetUiState.ChoosingPlayerAction &&
             uiState != PlayerSheetUiState.InvestigatorLoadFailed
         ) return
 
@@ -67,8 +76,25 @@ class PlayerSheetVm : ViewModel() {
             check(it.isNotEmpty()) { "Investigators.json is empty" }
         }
 
-    fun selectInvestigator(player: Investigator) {
-        if (uiState is PlayerSheetUiState.SelectingInvestigator) openSession(player, null)
+    fun examineInvestigator(player: Investigator, scrollIndex: Int, scrollOffset: Int) {
+        val selection = uiState as? PlayerSheetUiState.SelectingInvestigator ?: return
+        uiState = PlayerSheetUiState.ExaminingInvestigator(
+            player,
+            selection.copy(
+                firstVisibleItemIndex = scrollIndex,
+                firstVisibleItemScrollOffset = scrollOffset
+            )
+        )
+    }
+
+    fun returnToInvestigatorList() {
+        val examination = uiState as? PlayerSheetUiState.ExaminingInvestigator ?: return
+        uiState = examination.selection
+    }
+
+    fun selectInvestigator() {
+        val examination = uiState as? PlayerSheetUiState.ExaminingInvestigator ?: return
+        openSession(examination.investigator, null)
     }
 
     fun loadInvestigator(player: Investigator, storage: PlayerSessionStore? = null) {
@@ -127,7 +153,22 @@ class PlayerSheetVm : ViewModel() {
 
     private var revision = 0L
     private fun publish() {
-        uiState = PlayerSheetUiState.Ready(investigator.toUiModel(), ++revision)
+        val s = session ?: return
+        val skillSliders = s.positions.mapIndexed { skill, selectedPosition ->
+            SkillSliderUiState(
+                selectedPosition = selectedPosition,
+                availablePositions = (0..3).filterTo(mutableSetOf()) { position ->
+                    s.canSetPosition(skill, position)
+                }
+            )
+        }
+        uiState = PlayerSheetUiState.Ready(
+            investigatorUi = investigator.toUiModel(),
+            skillSliders = skillSliders,
+            remainingFocus = s.remainingFocus,
+            canEditSkills = s.canEditSkills(),
+            revision = ++revision
+        )
     }
 
     private fun save() {

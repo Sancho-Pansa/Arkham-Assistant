@@ -5,14 +5,17 @@ import io.sanchopansa.arkham.android.ui.models.SkillUi
 import io.sanchopansa.arkham.core.investigators.Investigator
 
 fun Investigator.toUiModel() = InvestigatorUi(
-    name,
-    stamina.value,
-    stamina.currentMaximum,
-    sanity.value,
-    sanity.currentMaximum,
-    money,
-    clueTokens,
-    SkillUi("Скорость", "Скрытность", ss.leftBlue, ss.leftRed, ss.sliderIndex),
-    SkillUi("Сила", "Воля", fw.leftBlue, fw.leftRed, fw.sliderIndex),
-    SkillUi("Знания", "Удача", ll.leftBlue, ll.leftRed, ll.sliderIndex)
+    name = name,
+    title = title,
+    stamina = stamina.value,
+    maxStamina = stamina.currentMaximum,
+    sanity = sanity.value,
+    maxSanity = sanity.currentMaximum,
+    money = money,
+    clueTokens = clueTokens,
+    speedSneak = SkillUi("Скорость", "Скрытность", ss.leftBlue, ss.leftRed, ss.sliderIndex),
+    fightWill = SkillUi("Сила", "Воля", fw.leftBlue, fw.leftRed, fw.sliderIndex),
+    loreLuck = SkillUi("Знания", "Удача", ll.leftBlue, ll.leftRed, ll.sliderIndex),
+    abilityName = ability.name,
+    abilityDescription = ability.description
 )
